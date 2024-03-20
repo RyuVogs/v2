@@ -1,4 +1,4 @@
-style="text-align:center">
+<p style="text-align:center">
 <font color="#FFEF00">╔═══════════════╗</font><br><font color="#FFE4B5"> 🅡🅨🅤🅥🅞🅖🅢 🅥🅟🅝 </font><br><font color="#FFEF00">╚═══════════════╝
 </font><br>
 <font color="#CCFFFF"><b>❒══════▣◎▣══════❒</font><br>
@@ -9,4 +9,4 @@ style="text-align:center">
 <font color="#CCFFFF"><b>❒══════▣◎▣══════❒</font><br>
 <b><font color=#E0FFFF>ʟᴀʏᴀɴᴀɴ ᴘʀᴇᴍɪᴜᴍ ᴏʀᴅᴇʀ ᴅɪ ꜱɪɴɪ</color></b><br>
 <font>
-wa.me/6285754707411</b></font>￼Enter
+wa.me/6285754707411</b></font>
