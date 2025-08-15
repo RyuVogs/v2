@@ -1184,7 +1184,7 @@ Restart=on-abort
 WantedBy=multi-user.target
 EOF
 ## Install Bahan Limit Ip Dan Quota Jer
-wget https://raw.githubusercontent.com/ryuvogs/v2/main/lim/limit.sh && chmod +x limit.sh && ./limit.sh
+#wget https://raw.githubusercontent.com/ryuvogs/v2/main/lim/limit.sh && chmod +x limit.sh && ./limit.sh
 clear
 cd
 wget -q -O /usr/local/sbin/quota "https://raw.githubusercontent.com/ryuvogs/v2/main/lim/quota"
