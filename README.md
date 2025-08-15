@@ -9,5 +9,5 @@
 </code></pre>
 
 ### PERINTAH UPDATE 
-<pre><code>wget https://raw.githubusercontent.com/ryuvogs/v2/main/Fls/update && chmod +x update && ./update</code></pre>
+<pre><code>wget https://raw.githubusercontent.com/ryuvogs/v2/main/Vpn/update.sh && chmod +x update.sh && ./update.sh</code></pre>
 ```
