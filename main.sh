@@ -1414,43 +1414,32 @@ systemctl restart ws-ovpn
 
 insbkp() {
     echo "🧹 Menghapus konfigurasi rclone lama jika ada..."
-    rm -rf /root/.config/rclone/
-
-    # Install rclone jika belum terpasang
-    if ! command -v rclone &> /dev/null; then
-        echo "📦 Menginstal rclone..."
-        apt update && apt install rclone -y
-    else
-        echo "✅ rclone sudah terinstal."
-    fi
-
-    # Buat ulang folder konfigurasi
-    mkdir -p /root/.config/rclone/
-
-    # Tulis ulang file rclone.conf
-    echo "✍️ Membuat ulang rclone.conf..."
-    cat << 'EOF' > /root/.config/rclone/rclone.conf
-[dr]
-type = drive
-scope = drive
-token = {"access_token":"ya29.a0AXooCgvm8inZk2IyE758SImjcw-ZfW159Xy_9VdpzmdRRNIAQAkYoK0uUfVzAyVJ9OGV7IavB4ZfUOZBOFIWdJQSBsIRd30Odm-3C79gkPUWDVtDW7RZ38D9WmpO4_yX_Koyl9iusV7fFLD5zPdaOPJNxSWu5fpwS4WYaCgYKAdwSARMSFQHGX2MiFb6mC7fqkOE-MZw4wN03hA0171","token_type":"Bearer","refresh_token":"1//0gy48CdFCGrDSCgYIARAAGBASNwF-L9IrBO83_8rSUDP-nWEBZ8umTFF8hyHD4F1DYtTD9LLhVzDslndzVxClxC3tmn9XZAePJks","expiry":"2024-06-26T13:10:09.529621506Z"}
+	apt install rclone -y
+printf "q\n" | rclone config
+wget -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/ryuvogs/v2/main/Cfg/rclone.conf"
+cd /bin
+git clone  https://github.com/LunaticBackend/wondershaper.git
+cd wondershaper
+sudo make install
+cd
+rm -rf wondershaper
+echo > /home/files
+apt install msmtp-mta ca-certificates bsd-mailx -y
+cat<<EOF>>/etc/msmtprc
+defaults
+tls on
+tls_starttls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+account default
+host smtp.gmail.com
+port 587
+auth on
+user oceantestdigital@gmail.com
+from oceantestdigital@gmail.com
+password jokerman77
+logfile ~/.msmtp.log
 EOF
-
-    # Verifikasi file berhasil dibuat
-    if [[ -f /root/.config/rclone/rclone.conf ]]; then
-        echo "✅ rclone.conf berhasil dibuat!"
-    else
-        echo "❌ Gagal membuat rclone.conf!"
-        return 1
-    fi
-
-    # Install wondershaper
-    echo "🔧 Menginstal wondershaper..."
-    git clone https://github.com/zhets/wondershaper.git /tmp/wondershaper
-    cd /tmp/wondershaper || exit 1
-    make install
-    cd ~
-    rm -rf /tmp/wondershaper
+chown -R www-data:www-data /etc/msmtprc
 
     echo "✅ Proses insbkp selesai!"
 }
