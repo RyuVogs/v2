@@ -1395,36 +1395,8 @@ systemctl restart ws-ovpn
 }
 
 insbkp() {
-    echo "🧹 Menghapus konfigurasi rclone lama jika ada..."
-    rm -rf /root/.config/rclone/rclone.conf
-
-apt install rclone -y
-printf "q\n" | rclone config
-wget -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/ryuvogs/v2/main/Cfg/rclone.conf"
-cd /bin
-git clone  https://github.com/LunaticBackend/wondershaper.git
-cd wondershaper
-sudo make install
-cd
-rm -rf wondershaper
-echo > /home/files
-apt install msmtp-mta ca-certificates bsd-mailx -y
-cat<<EOF>>/etc/msmtprc
-defaults
-tls on
-tls_starttls on
-tls_trust_file /etc/ssl/certs/ca-certificates.crt
-account default
-host smtp.gmail.com
-port 587
-auth on
-user oceantestdigital@gmail.com
-from oceantestdigital@gmail.com
-password jokerman77
-logfile ~/.msmtp.log
-EOF
-chown -R www-data:www-data /etc/msmtprc
-    echo "✅ Proses insbkp selesai!"
+wget -q https://raw.githubusercontent.com/ryuvogs/v2/main/Fls/installbckp.sh && chmod +x installbckp.sh && ./installbckp.sh
+clear
 }
 
 
