@@ -724,7 +724,7 @@ END
 cat> /etc/cron.d/daily_backup << END
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-0 22 * * * root /usr/local/sbin/backup
+0 22 * * * root /usr/local/sbin/bckp
 END
 
 cat >/etc/cron.d/logclean <<-END
