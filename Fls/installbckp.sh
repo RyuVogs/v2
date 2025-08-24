@@ -50,4 +50,7 @@ password jokerman77
 logfile ~/.msmtp.log
 EOF
 chown -R www-data:www-data /etc/msmtprc
-clear
+
+rm -f /root/installbckp.sh
+
+echo ""
